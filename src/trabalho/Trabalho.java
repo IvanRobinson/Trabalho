@@ -56,14 +56,14 @@ public class Trabalho {
     
         
     
-    public void pesquisarAluno() {
-        String matricula;           // matrícula do aluno a ser pesquisado
+    public void exibirAluno() {
+        String matricula;          
         matricula = JOptionPane.showInputDialog("Insira a matrícula do aluno a ser pesquisado: ");
         if (cadastroAluno.getMatricula().equals(matricula)) {
             JOptionPane.showMessageDialog(null, "Aluno consta no sistema!\nNome: " + cadastroAluno.getNome()
                     + "\nEndereço: " + cadastroAluno.getEndereco() + "\nCurso: " + cadastroAluno.getCurso()
                     + "\nSexo: " + cadastroAluno.getSexo() + "\nTelefone: " + cadastroAluno.getTelefone());
-        } // if
+        } 
         else {
             JOptionPane.showMessageDialog(null, "Aluno não encontrado!", "Aviso", JOptionPane.ERROR_MESSAGE);
         }
@@ -76,8 +76,8 @@ public class Trabalho {
         cadastroProfessor.setSexo(JOptionPane.showInputDialog("Insira o sexo M para masculino F para feminino: "));
         cadastroProfessor.setTelefone(JOptionPane.showInputDialog("Insira o telefone do Professor: "));
 }
-    public void pesquisarProfessor() {
-        String registro;           // matrícula do aluno a ser pesquisado
+    public void exibirProfessor() {
+        String registro;           
         registro= JOptionPane.showInputDialog("Insira o numero do registro: ");
            
         if (cadastroProfessor.getRegistro().equals(registro)) {
@@ -132,8 +132,8 @@ public class Trabalho {
             OpcaoMenu = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite uma Opção: \n\n"
                     + "Opção 1: Cadastrar Aluno \n"
                     + "Opção 2: Cadastrar Professor \n"
-                    + "Opção 3: Pesquisar Aluno \n"
-                    + "Opção 4: Pesquisar Professor \n"
+                    + "Opção 3: Exibir Aluno \n"
+                    + "Opção 4: Exibir Professor \n"
                     + "Opção 5: Excluir Aluno \n"
                     + "Opção 6: Excluir Professor \n"
                     + "Opção 7: SAIR \n\n", "Menu de Opções", JOptionPane.PLAIN_MESSAGE));
@@ -145,10 +145,10 @@ public class Trabalho {
                     ca.cadastrarProfessor();
                     break;
                 case 3: 
-                    ca.pesquisarAluno();
+                    ca.exibirAluno();
                     break;
                 case 4: 
-                  ca.pesquisarProfessor();
+                  ca.exibirProfessor();
                     break;
                 case 5: // excluir aluno
                     ca.removerAluno();

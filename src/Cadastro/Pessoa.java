@@ -15,12 +15,14 @@ public class Pessoa {
       private String    telefone;      
       private String  sexo; 
 
-    public Pessoa(String nome, String telefone, String sexo) {
-        this.nome = nome;
-        this.telefone = telefone;
-        this.sexo = sexo;
-    }
-      
+//    public Pessoa(String nome, String endereco, String telefone, String sexo) {
+//        this.nome = nome;
+//        this.endereco = endereco;
+//        this.telefone = telefone;
+//        this.sexo = sexo;
+//    }
+
+   
     public String getNome() {
         return (nome);
     }
@@ -45,10 +47,5 @@ public class Pessoa {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
-
-    @Override
-    public String toString() {
-        return "Pessoa{" + "nome=" + nome + ", endereco=" + endereco + ", telefone=" + telefone + ", sexo=" + sexo + '}';
-    }
+}
     
-} 

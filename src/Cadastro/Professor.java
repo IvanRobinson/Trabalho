@@ -13,15 +13,10 @@ package Cadastro;
  public class Professor extends Pessoa {
         private String registro;    
         private String  disciplinas; 
-        //http://www.guj.com.br/t/duvidas-sistema-academico-cadastro-alunos-e-professores/81932
 
-    public Professor(String registro, String disciplinas, String nome, String telefone, String sexo) {
-        super(nome, telefone, sexo);
-        this.registro = registro;
-        this.disciplinas = disciplinas;
-    }
-       
-             
+
+    
+
     public void setRegistro(String registro) {
         this.registro = registro;
     }
