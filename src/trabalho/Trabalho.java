@@ -150,19 +150,20 @@ public class Trabalho {
                 case 4: 
                   ca.exibirProfessor();
                     break;
-                case 5: // excluir aluno
+                case 5: 
                     ca.removerAluno();
                     break;
-                case 6: // excluir professor
+                case 6: 
+                    ca.removerProfessor();
                     break;
-                case 7: // sair do programa
+                case 7: 
                     break;
-                default: // opção inválida
-                    JOptionPane.showMessageDialog(null, "Opção Inválida", "Aviso", JOptionPane.ERROR_MESSAGE);
-                    break;
-            } // switch         
+                default: 
+                   JOptionPane.showMessageDialog(null,"Opção inválida!");
+               break;
+            }       
         } while (OpcaoMenu != 7);
-    } // main
+    } 
 
     
 } 
