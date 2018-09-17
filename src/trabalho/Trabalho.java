@@ -7,7 +7,9 @@ package trabalho;
 
 import Cadastro.Pessoa;
 import Cadastro.Aluno;
-import Cadastro.Media;
+
+
+import Cadastro.Professor;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,129 +17,153 @@ import javax.swing.JOptionPane;
  * @author Ivan
  */
 public class Trabalho {
-        Pessoa pessoa[] = new Pessoa[5];
+        Aluno cadastroAluno = new Aluno();   
+  
+        Professor cadastroProfessor = new Professor();   
+           private int n1;
+           private int n2;
+           private int n3;
+    
+    public void cadastrarAluno() {
+        cadastroAluno.setNome(JOptionPane.showInputDialog("Insira o nome do aluno: "));
+        cadastroAluno.setMatricula(JOptionPane.showInputDialog("Insira a matrícula do aluno: "));
+        cadastroAluno.setCurso(JOptionPane.showInputDialog("Insira o curso do aluno: "));
+        cadastroAluno.setEndereco(JOptionPane.showInputDialog("Insira o endereço do aluno: "));
+        cadastroAluno.setSexo(JOptionPane.showInputDialog("Insira o sexo do aluno: "));
+        cadastroAluno.setTelefone(JOptionPane.showInputDialog("Insira o telefone do aluno: "));
+            String s = null;
+            
+           String nome, n1, n2, n3;
+		double nota1, nota2,nota3, media;
+				
+		n1 = JOptionPane.showInputDialog("Digite a nota1");
+		//converte a String em double
+		nota1 = Double.parseDouble(n1);
+		n2 = JOptionPane.showInputDialog("Digite a nota2");
+		nota2 = Double.parseDouble(n2);
+                n3 = JOptionPane.showInputDialog("Digite a nota3");
+                nota3 = Double.parseDouble(n3);
+		media = (nota1+nota2+nota3)/3;
+		if (media>=7)
+		{
+			JOptionPane.showMessageDialog(null,"\n"+"A média do aluno é"+media,"Aluno Aprovado",JOptionPane.INFORMATION_MESSAGE);
+		}else 
+		{
+		JOptionPane.showMessageDialog(null,"\n"+"A media do aluno é"+media, "Deverá fazer Prova Substituta", JOptionPane.WARNING_MESSAGE);
+		}
        
-
-    public static void main(String[] args) {
-
-        Pessoa pessoa[] = new Pessoa[5];
+	}
+    
         
-        int opcao = 0;
-
-        do {
-             Trabalho cadastro = new Trabalho();
-              opcao = Integer.parseInt(JOptionPane.showInputDialog("Escolha uma opção:\n"
-               + "1 - Cadastrar Aluno\n"
-               + "2 - Cadastrar Professor"
-               + "3 - media \n"
-               + "4 - Remover \n"
-               + "4 - Sair"));
-       
-       
-           switch(opcao){
-            
-                    
-            
-                case 1:
-                    cadastro.cadastrarAluno();
-                    break;
-                case 2:
-                    cadastro.cadastrarProfessor();
-                    break;
-                case 3:
-                    cadastro.cadastrarNotas();
-                    break;
-                default:
-                    System.out.println("Esta não é uma opção válida!");
-            }
-        } while (opcao !=3 );
-    }
-    private void cadastrarAluno(){
-         Pessoa novoPessoa = null;
-         
-           String nome = JOptionPane.showInputDialog("");
-            novoPessoa.setNome(nome);
-           
-            String telefone = JOptionPane.showInputDialog("");
-            novoPessoa.setTelefone(telefone);
-        
-            String endereco = JOptionPane.showInputDialog("");
-             novoPessoa.setEndereco(endereco);
-        
-             String sexo = JOptionPane.showInputDialog("");
-              novoPessoa.setSexo(sexo);
-              
-
-           
-        for(int i=0; i < pessoa.length; i++){
-            if(pessoa[i] == null){
-                pessoa[i] = novoPessoa;
-                        break;
-            }
+    
+    public void pesquisarAluno() {
+        String matricula;           // matrícula do aluno a ser pesquisado
+        matricula = JOptionPane.showInputDialog("Insira a matrícula do aluno a ser pesquisado: ");
+        if (cadastroAluno.getMatricula().equals(matricula)) {
+            JOptionPane.showMessageDialog(null, "Aluno consta no sistema!\nNome: " + cadastroAluno.getNome()
+                    + "\nEndereço: " + cadastroAluno.getEndereco() + "\nCurso: " + cadastroAluno.getCurso()
+                    + "\nSexo: " + cadastroAluno.getSexo() + "\nTelefone: " + cadastroAluno.getTelefone());
+        } // if
+        else {
+            JOptionPane.showMessageDialog(null, "Aluno não encontrado!", "Aviso", JOptionPane.ERROR_MESSAGE);
         }
-        JOptionPane.showMessageDialog(null, "Aluno cadastrado!");
-    }
-
-    private void cadastrarProfessor(){
-         Pessoa novoProfessor = null;
-         
-           String nome = JOptionPane.showInputDialog("");
-            novoProfessor.setNome(nome);
+    } 
+    private void cadastrarProfessor () {  
+        cadastroProfessor.setNome(JOptionPane.showInputDialog("Insira o nome do Professor: "));
+        cadastroProfessor.setDisciplinas(JOptionPane.showInputDialog("Insira o nome da Diciplina que ministra: "));
+        cadastroProfessor.setRegistro(JOptionPane.showInputDialog("Insira o registro: "));
+        cadastroProfessor.setEndereco(JOptionPane.showInputDialog("Insira o endereço do professor: "));
+        cadastroProfessor.setSexo(JOptionPane.showInputDialog("Insira o sexo M para masculino F para feminino: "));
+        cadastroProfessor.setTelefone(JOptionPane.showInputDialog("Insira o telefone do Professor: "));
+}
+    public void pesquisarProfessor() {
+        String registro;           // matrícula do aluno a ser pesquisado
+        registro= JOptionPane.showInputDialog("Insira o numero do registro: ");
            
-            String telefone = JOptionPane.showInputDialog("");
-            novoProfessor.setTelefone(telefone);
-        
-            String endereco = JOptionPane.showInputDialog("");
-             novoProfessor.setEndereco(endereco);
-        
-             String sexo = JOptionPane.showInputDialog("");
-              novoProfessor.setSexo(sexo);
-              
-//              String ra = JOptionPane.showInputDialog("");
-//              novoPessoa.setMatricula(ra);
-//              
-//               String curso = JOptionPane.showInputDialog("");
-//              novoPessoa.setCurso(curso);
-           
-           
-        for(int i=0; i < pessoa.length; i++){
-            if(pessoa[i] == null){
-                pessoa[i] = novoProfessor;
-                        break;
-            }
+        if (cadastroProfessor.getRegistro().equals(registro)) {
+            JOptionPane.showMessageDialog(null, "Professor consta no sistema!\nNome: " + cadastroProfessor.getNome()
+                    + "\nEndereço: " + cadastroProfessor.getEndereco() + "\nCurso: " + cadastroProfessor.getDisciplinas()
+                    + "\nSexo: " + cadastroProfessor.getSexo() + "\nTelefone: " + cadastroProfessor.getTelefone());
+        } // if
+        else {
+            JOptionPane.showMessageDialog(null, "Professorão não encontrado!", "Aviso", JOptionPane.ERROR_MESSAGE);
         }
-        JOptionPane.showMessageDialog(null, "Professor cadastrado!");
     }
-    private void cadastrarNotas(){
-       Media novaMedia = null;
-       for(int i=0; i< pessoa.length; i++){
-           String nome = JOptionPane.showInputDialog("");
-            novoPesoa.setNome(nome);
-      JOptionPane.showMessageDialog(null,"aluno  : "+pessoa[i].getNome());
-      
-          String nota1= JOptionPane.showInputDialog("Entre com a nota");
-          Integer.parseInt(nota1);
-            
-            
-            String nota2= JOptionPane.showInputDialog("");
-            Integer.parseInt(nota2);
-            
-            String nota3= JOptionPane.showInputDialog("");
-            Integer.parseInt(nota3);
-            
-           media= (media =  (nota1+ nota2+ nota3)/3);
-       }
-    }
-
-    private void exibir(){
-        String menssagem = "Animais";
-        for(int i=0; i< pessoa.length; i++){
-            if(pessoa[i] != null){
-                menssagem += "\n" + pessoa[i].getNome() +"\n" + pessoa[i].getTelefone() + "\n"+ pessoa[i].getEndereco() +"\n"
-                        + pessoa[i].getSexo() ;
+  private void removerAluno(){
+        String matricula = JOptionPane.showInputDialog("Insira a matrícula do aluno : ");
+        boolean removido = false;
+        
+            if(cadastroAluno != null){
+                if(cadastroAluno.getNome().equals(matricula)){
+                    cadastroAluno = null;
+                    removido = true;
+                }
             }
+        
+        if(removido){
+            JOptionPane.showMessageDialog(null,"Aluno removido com sucesso!");
+        }else{
+            JOptionPane.showMessageDialog(null,"Aluno não encontrado!");
         }
-        JOptionPane.showMessageDialog(null, menssagem);
+    }
+     private void removerProfessor(){
+        String registro = JOptionPane.showInputDialog("Insira o numero do registro : ");
+        boolean removido = false;
+        
+            if(cadastroProfessor != null){
+                if(cadastroProfessor.getNome().equals(registro)){
+                    cadastroProfessor = null;
+                    removido = true;
+                }
+            }
+        
+        if(removido){
+            JOptionPane.showMessageDialog(null,"Professor removido com sucesso!");
+        }else{
+            JOptionPane.showMessageDialog(null,"Professor não encontrado!");
+        }
     }
     
-}
+    
+    public static void main(String[] args) {
+        int OpcaoMenu;                                      // opção do menu
+        Trabalho ca = new Trabalho();
+        do { // loop para menu de opções
+            OpcaoMenu = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite uma Opção: \n\n"
+                    + "Opção 1: Cadastrar Aluno \n"
+                    + "Opção 2: Cadastrar Professor \n"
+                    + "Opção 3: Pesquisar Aluno \n"
+                    + "Opção 4: Pesquisar Professor \n"
+                    + "Opção 5: Excluir Aluno \n"
+                    + "Opção 6: Excluir Professor \n"
+                    + "Opção 7: SAIR \n\n", "Menu de Opções", JOptionPane.PLAIN_MESSAGE));
+            switch (OpcaoMenu) { 
+                case 1: 
+                    ca.cadastrarAluno();
+                    break;
+                case 2: 
+                    ca.cadastrarProfessor();
+                    break;
+                case 3: 
+                    ca.pesquisarAluno();
+                    break;
+                case 4: 
+                  ca.pesquisarProfessor();
+                    break;
+                case 5: // excluir aluno
+                    ca.removerAluno();
+                    break;
+                case 6: // excluir professor
+                    break;
+                case 7: // sair do programa
+                    break;
+                default: // opção inválida
+                    JOptionPane.showMessageDialog(null, "Opção Inválida", "Aviso", JOptionPane.ERROR_MESSAGE);
+                    break;
+            } // switch         
+        } while (OpcaoMenu != 7);
+    } // main
+
+    
+} 
+
